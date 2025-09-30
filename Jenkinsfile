@@ -19,7 +19,7 @@ pipeline {
                     bat 'dir'
 
                     echo '--- Running with Full Path ---'
-                    bat '"C:\\Program Files\\Java\jdk-21\\bin\\java.exe" HelloWorld'
+                    bat '"C:\\Program Files\\Java\\jdk-21\\bin\\java.exe" HelloWorld'
                 }
             }
         }
