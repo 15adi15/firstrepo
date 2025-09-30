@@ -1,30 +1,25 @@
 pipeline {
-    // 1. Agent: Specifies where the pipeline will run. 'any' means any available agent.
     agent any
 
-    // 2. Triggers: Defines how the pipeline is automatically started.
-    // This cron syntax will run the pipeline every 15 minutes[cite: 25, 29].
     triggers {
         cron('H/15 * * * *')
     }
 
-    // 3. Stages: Defines the different stages of the pipeline.
     stages {
-        // The "Build" stage
-        stage('Build') {
+        stage('Build and Run') {
             steps {
-                // Steps to execute in the "Build" stage
                 script {
-                    echo '--- Compiling the Java Code ---'
-                    
-                    // Use 'bat' for Windows or 'sh' for Linux/macOS
-                    if (isUnix()) {
-                        sh 'javac HelloWorld.java'
-                    } else {
-                        bat 'javac HelloWorld.java'
-                    }
-                    
-                    echo '--- Compilation Complete ---'
+                    echo '--- Compiling with Full Path ---'
+
+                    // Use bat for Windows
+                    // The quotes are important!
+                    bat '"C:\\Program Files\\Java\jdk-21\\bin\\javac.exe" HelloWorld.java'
+
+                    echo '--- Listing Files ---'
+                    bat 'dir'
+
+                    echo '--- Running with Full Path ---'
+                    bat '"C:\\Program Files\\Java\jdk-21\\bin\\java.exe" HelloWorld'
                 }
             }
         }
