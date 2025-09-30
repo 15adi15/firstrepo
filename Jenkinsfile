@@ -13,13 +13,13 @@ pipeline {
 
                     // Use bat for Windows
                     // The quotes are important!
-                    bat '"C:\\Program Files\\Java\\jdk-21\\bin\\javac.exe" HelloWorld.java'
+                    bat '"C:\\Program Files\\Java\\jdk-21\\bin\\javac.exe" helloWorld.java'
 
                     echo '--- Listing Files ---'
                     bat 'dir'
 
                     echo '--- Running with Full Path ---'
-                    bat '"C:\\Program Files\\Java\\jdk-21\\bin\\java.exe" HelloWorld'
+                    bat '"C:\\Program Files\\Java\\jdk-21\\bin\\java.exe" helloWorld'
                 }
             }
         }
